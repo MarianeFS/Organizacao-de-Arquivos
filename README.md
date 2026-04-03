@@ -30,10 +30,11 @@ gcc -o trab1 *.c -Wall -Werror
 ```
 
 ## Autoras
-Ana Luísa Pereira da Silva Leal
+Ana Luísa Pereira da Silva Leal <br>
 Mariane Ferreira dos Santos
 
-_Instituição: Instituto de Ciências Matemáticas e de Computação (ICMC - USP)_
-
+<div align="right">
+<small>_Instituição: Instituto de Ciências Matemáticas e de Computação (ICMC - USP)_</small>
+</div>
 
 
