@@ -27,3 +27,9 @@ O sistema não utiliza todo o arquivo em memória RAM, garantindo a manipulaçã
 Para compilar o projeto utilizando o compilador GCC, abra o terminal na raiz do diretório e execute:
 ```bash
 gcc -o trab1 *.c -Wall -Werror
+
+## Autoras
+Ana Luísa Pereira da Silva Leal
+Mariane Ferreira dos Santos
+
+_Instituição: Instituto de Ciências Matemáticas e de Computação (ICMC - USP)_
