@@ -34,7 +34,7 @@ Ana Luísa Pereira da Silva Leal <br>
 Mariane Ferreira dos Santos
 
 <div align="right">
-<small>_Instituição: Instituto de Ciências Matemáticas e de Computação (ICMC - USP)_</small>
+<small> <i>Instituição: Instituto de Ciências Matemáticas e de Computação (ICMC - USP)</i> </small>
 </div>
 
 
