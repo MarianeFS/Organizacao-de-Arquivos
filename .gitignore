@@ -1,0 +1,12 @@
+# Arquivos compilados
+*.o
+*.exe
+*.out
+
+# Arquivos de dados binários gerados pelo programa
+*.bin
+*.dat
+
+# Pastas de IDEs 
+.vscode/
+.idea/
