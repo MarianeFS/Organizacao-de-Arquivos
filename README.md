@@ -6,7 +6,7 @@
 ![Doxygen](https://img.shields.io/badge/Doxygen-blue?style=for-the-badge)
 
 ## Sobre o Projeto
-Este projeto foi desenvolvido para a disciplina de Organização de Arquivos no ICMC-USP. O objetivo principal é a manipulação direta de **arquivos binários** em linguagem C, simulando um banco de dados para gerenciar estações e linhas de metrô.
+Projeto desenvolvido para a disciplina de Organização de Arquivos. O objetivo principal é a manipulação direta de **arquivos binários** em linguagem C, simulando um banco de dados para gerenciar estações e linhas de metrô.
 O sistema não utiliza todo o arquivo em memória RAM, garantindo a manipulação eficiente dos dados diretamente no disco (HDD/SSD).
 
 ## Especificações Técnicas
