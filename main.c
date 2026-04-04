@@ -14,8 +14,7 @@
  *
  * @author [Seu Nome Aqui] - [Seu NUSP]
  * @author Mariane Ferreira dos Santos - 16840035
- * @date Abril de 2026
- * @note Trabalho Prático 1 - SCC0215 (Organização de Arquivos)
+ * @note Trabalho Prático 1 - (SCC0215) Organização de Arquivos
  */
 
 #include <stdio.h>

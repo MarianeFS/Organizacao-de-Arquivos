@@ -5,10 +5,6 @@
  * @details Este arquivo define a interface para a camada de lógica do sistema.
  * Contém os protótipos das funções que gerenciam o fluxo de dados entre
  * o usuário (entrada via teclado) e as funções de baixo nível no disco.
- *
- * @author [Seu Nome Aqui] - [Seu NUSP]
- * @author Mariane Ferreira dos Santos - 16840035
- * @date Abril de 2026
  */
 
 #ifndef LOGICA_H

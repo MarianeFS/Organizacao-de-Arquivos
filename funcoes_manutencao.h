@@ -5,10 +5,6 @@
  * @details Este arquivo define a interface para as operações de baixo nível que
  * alteram o estado do disco. Inclui o cálculo de Byte Offset, gestão de 
  * consistência do arquivo e as operações de escrita para inserção, remoção e atualização.
- *
- * @author [Seu Nome Aqui] - [Seu NUSP]
- * @author Mariane Ferreira dos Santos - 16840035
- * @date Abril de 2026
  */
 
 #ifndef FUNCOES_MANUTENCAO_H

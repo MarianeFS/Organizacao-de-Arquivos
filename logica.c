@@ -4,10 +4,6 @@
  *
  * @details Este ficheiro coordena as operações de INSERT, DELETE e UPDATE,
  * realizando a ponte entre a entrada de dados e a manipulação binária.
- *
- * @author [Seu Nome] - [Seu NUSP]
- * @author Mariane Ferreira dos Santos - 16840035
- * @date Abril de 2026
  */
 
 #include <stdio.h>

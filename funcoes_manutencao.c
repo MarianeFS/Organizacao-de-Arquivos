@@ -15,11 +15,6 @@
  * * Além da parte de manipulação, há também funções de segurança para registrar 
  * logs em `operacoes.log` e capturar sinais de interrupção (SIGINT) a fim de evitar 
  * corrupção do arquivo binário.
- *
- * @author [Seu Nome Aqui] - [Seu NUSP]
- * @author Mariane Ferreira dos Santos - 16840035
- * @date Abril de 2026
- * @note Trabalho Prático 1 - Organização de Arquivos (SCC0215)
  */
 
 #include <stdio.h>
