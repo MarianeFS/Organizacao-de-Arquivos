@@ -1,6 +1,6 @@
 /**
  * @file main.c
- * @brief Ponto de entrada do programa e gerenciador do menu principal.
+ * @brief Entrada do programa e gerenciador do menu principal.
  *
  * @details Este arquivo contém a função principal que inicializa o sistema,
  * carrega o cabeçalho do arquivo binário para a memória e gerencia o loop
@@ -22,7 +22,8 @@
 #include <string.h>
 #include <signal.h>
 #include "tipos.h"
-#include "funcoes_manutencao.c"
+#include "funcoes_manutencao.h"
+#include "logica.h"
 
 /** 
  * @brief Ponteiro global para o arquivo binário.
@@ -31,7 +32,7 @@
 FILE *bin_global = NULL;
 
 /**
- * @brief Captura o sinal de interrupção (Ctrl+C) e fecha o arquivo com segurança.
+ * @brief Detectar o sinal de interrupção (Ctrl+C) e fechar o arquivo com segurança.
  * @param sig Número do sinal recebido.
  */
 void trata_sigint(int sig) {
@@ -46,9 +47,9 @@ void trata_sigint(int sig) {
 }
 
 /**
- * @brief Função principal (Main).
+ * @brief Função principal (main).
  * Responsável por carregar o cabeçalho, validar o status e executar o menu.
- * @return int Código de execução (0 para sucesso).
+ * @return int Código de execução (0 para válido).
  */
 int main() {
     signal(SIGINT, trata_sigint);
@@ -90,24 +91,26 @@ int main() {
             case 3: // SELECT WHERE
                 //
                 break;
-            case 4: // INSERT
-                logica_insercao(bin, &c);
-                registrar_log("INSERT", c.proxRRN - 1); // Exemplo de log
+            case 4: // DELETE
+                logica_remocao(bin, &c);
                 break;
-            case 5: // DELETE (Apenas rascunho da lógica)
-                // 1. ler campo de busca (ex: nomeEstacao)
-                // 2. rrn_encontrado = busca_registro(bin, &c, valor);
-                // 3. remover_reg_rrn(bin, rrn_encontrado, &c);
+            case 5: // INSERT
+                logica_insercao(bin, &c);
                 break;
             case 6: // UPDATE
-                //
+                logica_atualizacao(bin, &c);
                 break;
             default:
                 break;
         }
     }
 
+    //Garantir o status final para '1' (consistente)
     marcar_cons(bin);
     fclose(bin);
+
+    //Chamar função de comparação no RunCodes
+    BinarioNaTela("estacoes.bin");
+
     return 0;
 }

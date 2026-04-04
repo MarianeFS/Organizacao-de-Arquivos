@@ -3,7 +3,7 @@
  * @brief Protótipos das funções de manipulação técnica e manutenção do arquivo binário.
  *
  * @details Este arquivo define a interface para as operações de baixo nível que
- * alteram o estado do disco. Inclui o cálculo de Byte Offset, gestão de 
+ * alteram o estado do disco. Inclui o cálculo de ByteOffset, gestão de 
  * consistência do arquivo e as operações de escrita para inserção, remoção e atualização.
  */
 
@@ -15,56 +15,58 @@
 
 //============ Funções auxiliares e de navegação ============
 /**
- * @brief Calcula a posição exata (em bytes) de um RRN no arquivo.
- * @param rrn Número relativo do registro.
+ * @brief Calcular a posição exata (em bytes) de um RRN no arquivo.
+ * @param rrn O "Relative Record Number" (RRN): Número relativo do registro.
  * @return Deslocamento (offset) em bytes a partir do início do arquivo.
  */
 long calcular_offset(int rrn);
 
 /**
- * @brief Altera o primeiro byte do arquivo para indicar que ele está sendo modificado.
+ * @brief Alterar o primeiro byte do arquivo para indicar que ele está sendo modificado.
  * @param bin Ponteiro para o arquivo binário.
  */
 void marcar_incons(FILE *bin);
 
 /**
- * @brief Altera o primeiro byte do arquivo para indicar que ele está finalizado e íntegro.
+ * @brief Alterar o primeiro byte do arquivo para indicar que ele está finalizado e íntegro (consistente).
  * @param bin Ponteiro para o arquivo binário.
  */
 void marcar_cons(FILE *bin);
 
 /**
- * @brief Move o ponteiro de leitura/escrita para o início de um registro específico.
+ * @brief Mover o ponteiro de leitura/escrita para o início de um registro específico.
  * @param bin Ponteiro para o arquivo binário.
- * @param rrn Número relativo do registro alvo.
+ * @param rrn O "Relative Record Number" (RRN): Número relativo do registro alvo.
  */
 void posicionar_rrn(FILE *bin, int rrn);
+
+void escrever_reg(FILE *bin, Registro *r);
 
 
 //============ Operações de manutenção (disco) ============
 /**
- * @brief Realiza a remoção lógica, atualizando a pilha de removidos no cabeçalho.
- * @param bin Arquivo binário aberto para leitura e escrita.
- * @param rrn RRN do registro a ser removido.
- * @param c Ponteiro para o cabeçalho em memória (será atualizado e sincronizado no disco).
+ * Remover logicamente um registo no RRN especificado e atualizar a pilha. Se a função DELETE deletar todas as instâncias de uma estação única, é necessário atualizar o número de estações (cabeçalho).
+ * * @param bin Ficheiro binário aberto em modo "rb+" (leitura e escrita).
+ * @param rrn O "Relative Record Number" (RRN) do registo a ser removido.
+ * @param c Ponteiro para o cabeçalho atual (carregado na memória).
  */
 void remover_reg_rrn(FILE *bin, int rrn, Cabecalho *c);
 
 /**
- * @brief Escreve os 80 bytes de um novo registro no local indicado.
- * @param bin Arquivo binário aberto para leitura e escrita.
- * @param rrn RRN onde o registro será gravado.
- * @param c Ponteiro para o cabeçalho para atualizar proxRRN e contadores.
- * @param novo Struct contendo os dados a serem gravados.
+ * Insere logicamente um registo no RRN especificado.
+ * * @param bin Ficheiro binário aberto em modo "rb+" (leitura e escrita).
+ * @param rrn O "Relative Record Number" (RRN) do registo a ser inserido.
+ * @param c Ponteiro para o cabeçalho atual (carregado na memória).
+ * @param novo Novo registro que será inserido (struct com os dados).
  */
-void insere_reg_rrn(FILE *bin, int rrn, Cabecalho *c, Registro novo);
+void inserir_reg_rrn(FILE *bin, int rrn, Cabecalho *c, Registro novo);
 
 /**
- * @brief Sobrescreve um registro existente com novos dados.
- * @param bin Arquivo binário aberto para leitura e escrita.
- * @param rrn RRN do registro a ser atualizado.
- * @param c Ponteiro para o cabeçalho para atualizar contadores de estações.
- * @param atualizado Struct contendo os novos dados.
+ * Atualiza logicamente um registo no RRN especificado.
+ * * @param bin Ficheiro binário aberto em modo "rb+" (leitura e escrita).
+ * @param rrn O "Relative Record Number" (RRN) do registo a ser atualizado.
+ * @param c Ponteiro para o cabeçalho atual (carregado na memória).
+ * @param atualizado Registro que será atualizado.
  */
 void atualizar_reg_rrn(FILE *bin, int rrn, Cabecalho *c, Registro atualizado);
 
