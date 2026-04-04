@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 #include "funcoes_manutencao.h" 
 #include "logica.h"
 
@@ -146,6 +147,32 @@ void BinarioNaTela(char *arquivo) {
     fclose(fs);
 }
 
+void ScanQuoteString(char *str) {
+    char R;
+
+    while ((R = getchar()) != EOF && isspace(R))
+        ; 
+
+    if (R == 'N' || R == 'n') {
+        getchar();
+        getchar();
+        getchar();     
+        strcpy(str, ""); 
+    } else if (R == '\"') {
+        if (scanf("%[^\"]", str) != 1) { 
+            strcpy(str, "");
+        }
+        getchar();         
+    } else if (R != EOF) { 
+                           
+                           
+        str[0] = R;
+        scanf("%s", &str[1]);
+    } else { // EOF
+        strcpy(str, "");
+    }
+}
+
 //============== Lógicas principais ===============
 
 //========== Lógica de remoção (DELETE) ==========
@@ -167,6 +194,9 @@ void logica_remocao(FILE *bin, Cabecalho *c) {
                     encontrou = 1;
                 }
             }
+        }
+        if (!encontrou) {
+        printf("Registro inexistente.\n");
         }
     }
 }

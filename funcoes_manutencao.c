@@ -21,6 +21,7 @@
 #include <stdlib.h>
 #include <signal.h> //Biblioteca necessária para o SIGINT
 #include "funcoes_manutencao.h"
+#include "logica.h"
 
 long calcular_offset(int rrn) {
     return TAM_CABECALHO + (rrn * TAM_REGISTRO);
