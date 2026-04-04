@@ -14,7 +14,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include "tipos.h"
-#include "funcoes_manutencao.c" // 
+#include "funcoes_manutencao.h" 
+#include "logica.h"
 
 //========== Funções auxiliares de suporte ==========
 /**

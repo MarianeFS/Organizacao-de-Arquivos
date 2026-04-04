@@ -26,6 +26,7 @@
 #include <stdlib.h>
 #include <signal.h> //Biblioteca necessária para o SIGINT
 #include "tipos.h"
+#include "funcoes_manutencao.h"
 
 //Função auxiliar que calcula a posição do registro no ficheiro (ByteOffset)
 long calcular_offset(int rrn) {

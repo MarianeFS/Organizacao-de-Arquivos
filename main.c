@@ -1,3 +1,23 @@
+/**
+ * @file main.c
+ * @brief Ponto de entrada do programa e gerenciador do menu principal.
+ *
+ * @details Este arquivo contém a função principal que inicializa o sistema,
+ * carrega o cabeçalho do arquivo binário para a memória e gerencia o loop
+ * de opções baseado na entrada do usuário. Também implementa o tratamento
+ * de sinais (SIGINT) para garantir a integridade do arquivo em caso de 
+ * fechamento inesperado.
+ * * Funcionalidades principais:
+ * - Abertura e fechamento seguro do arquivo binário.
+ * - Gerenciamento do status de consistência ('0' ou '1').
+ * - Direcionamento das opções do menu para as funções de lógica.
+ *
+ * @author [Seu Nome Aqui] - [Seu NUSP]
+ * @author Mariane Ferreira dos Santos - 16840035
+ * @date Abril de 2026
+ * @note Trabalho Prático 1 - SCC0215 (Organização de Arquivos)
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -5,9 +25,16 @@
 #include "tipos.h"
 #include "funcoes_manutencao.c"
 
-//Variável global para o sinal (SIGINT)
+/** 
+ * @brief Ponteiro global para o arquivo binário.
+ * Utilizado pelo tratador de sinais (SIGINT) para fechar o arquivo corretamente.
+ */
 FILE *bin_global = NULL;
 
+/**
+ * @brief Captura o sinal de interrupção (Ctrl+C) e fecha o arquivo com segurança.
+ * @param sig Número do sinal recebido.
+ */
 void trata_sigint(int sig) {
     if (bin_global != NULL) {
         printf("\nAVISO: Interrupção detectada! Salvando status do arquivo...\n");
@@ -19,6 +46,11 @@ void trata_sigint(int sig) {
     exit(0);
 }
 
+/**
+ * @brief Função principal (Main).
+ * Responsável por carregar o cabeçalho, validar o status e executar o menu.
+ * @return int Código de execução (0 para sucesso).
+ */
 int main() {
     signal(SIGINT, trata_sigint);
 
