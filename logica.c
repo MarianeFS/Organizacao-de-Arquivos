@@ -83,14 +83,14 @@ void atualizar_campo_struct(Registro *r, char *campo, char *valor) {
 }
 
 int reg_atende_criterio(Registro *r, char *campo, char *valor) {
-    if (strcmp(campo, "codEstacao") == 0)      return r->codEstacao == atoi(valor);
-    if (strcmp(campo, "codLinha") == 0)        return r->codLinha == atoi(valor);
-    if (strcmp(campo, "codProxEstacao") == 0)  return r->codProxEstacao == atoi(valor);
+    if (strcmp(campo, "codEstacao") == 0) return r->codEstacao == atoi(valor);
+    if (strcmp(campo, "codLinha") == 0) return r->codLinha == atoi(valor);
+    if (strcmp(campo, "codProxEstacao") == 0) return r->codProxEstacao == atoi(valor);
     if (strcmp(campo, "distProxEstacao") == 0) return r->distProxEstacao == atoi(valor);
     if (strcmp(campo, "codLinhaIntegra") == 0) return r->codLinhaIntegra == atoi(valor);
-    if (strcmp(campo, "codEstIntegra") == 0)   return r->codEstIntegra == atoi(valor);
-    if (strcmp(campo, "nomeEstacao") == 0)     return strcmp(r->nomeEstacao, valor) == 0;
-    if (strcmp(campo, "nomeLinha") == 0)       return strcmp(r->nomeLinha, valor) == 0;
+    if (strcmp(campo, "codEstIntegra") == 0) return r->codEstIntegra == atoi(valor);
+    if (strcmp(campo, "nomeEstacao") == 0) return strcmp(r->nomeEstacao, valor) == 0;
+    if (strcmp(campo, "nomeLinha") == 0) return strcmp(r->nomeLinha, valor) == 0;
     return 0;
 }
 
@@ -153,12 +153,12 @@ void logica_remocao(FILE *bin, Cabecalho *c) {
     int n_buscas;
     scanf("%d", &n_buscas); 
 
-    for(int k = 0; k < n_buscas; k++) {
+    for(int i = 0; i < n_buscas; i++) {
         char campo[50], valor[50];
         scanf("%s %s", campo, valor);
 
         int encontrou = 0;
-        for (int i = 0; i < c->proxRRN; i++) {
+        for (int j = 0; j < c->proxRRN; j++) {
             posicionar_rrn(bin, i);
             Registro reg;
             if (ler_reg_binario(bin, &reg)) {
@@ -211,12 +211,12 @@ void logica_atualizacao(FILE *bin, Cabecalho *c) {
     int n_atualizacoes;
     scanf("%d", &n_atualizacoes);
 
-    for(int k = 0; k < n_atualizacoes; k++){
+    for(int i = 0; i < n_atualizacoes; i++){
         char campo_busca[50], valor_busca[50];
         char campo_atualizar[50], novo_valor[50];
         scanf("%s %s %s %s", campo_busca, valor_busca, campo_atualizar, novo_valor);
 
-        for (int i = 0; i < c->proxRRN; i++) {
+        for (int j = 0; j < c->proxRRN; j++) {
             posicionar_rrn(bin, i);
             Registro reg;
             if (ler_reg_binario(bin, &reg)) { 

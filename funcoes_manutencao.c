@@ -66,7 +66,6 @@ void escrever_reg(FILE *bin, Registro *r) {
     
     posicionar_rrn(bin, rrn);
     
-
     //Evitar ler um registro já removido, lendo o status atual do mesmo
     char ja_removido;
     fread(&ja_removido, sizeof(char), 1, bin);
@@ -96,8 +95,6 @@ void escrever_reg(FILE *bin, Registro *r) {
 
     //Atualizar o cabeçalho no disco, fazendo update imediato
     fseek(bin, 0, SEEK_SET); 
-
-    //
     fwrite(c, sizeof(Cabecalho), 1, bin);
 
     marcar_cons(bin);
@@ -120,8 +117,8 @@ void inserir_reg_rrn(FILE *bin, int rrn, Cabecalho *c, Registro novo) {
         c->proxRRN = rrn + 1;
     }
 
-    //Atualizar o proxRRN no disco
-    fseek(bin, 5, SEEK_SET); //Pular status (1) e topo (4) para o proxRRN **0 ou 5?
+    //Reescrever todo o cabeçalho no início do arquivo, garantindo consistência dos dados
+    fseek(bin, 0, SEEK_SET); 
     fwrite(c, sizeof(Cabecalho), 1, bin);
     
     marcar_cons(bin);

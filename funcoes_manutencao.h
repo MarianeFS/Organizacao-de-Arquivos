@@ -42,7 +42,6 @@ void posicionar_rrn(FILE *bin, int rrn);
 
 void escrever_reg(FILE *bin, Registro *r);
 
-
 //============ Operações de manutenção (disco) ============
 /**
  * Remover logicamente um registo no RRN especificado e atualizar a pilha. Se a função DELETE deletar todas as instâncias de uma estação única, é necessário atualizar o número de estações (cabeçalho).
@@ -53,7 +52,7 @@ void escrever_reg(FILE *bin, Registro *r);
 void remover_reg_rrn(FILE *bin, int rrn, Cabecalho *c);
 
 /**
- * Insere logicamente um registo no RRN especificado.
+ * Inserir logicamente um registo no RRN especificado.
  * * @param bin Ficheiro binário aberto em modo "rb+" (leitura e escrita).
  * @param rrn O "Relative Record Number" (RRN) do registo a ser inserido.
  * @param c Ponteiro para o cabeçalho atual (carregado na memória).
@@ -62,7 +61,7 @@ void remover_reg_rrn(FILE *bin, int rrn, Cabecalho *c);
 void inserir_reg_rrn(FILE *bin, int rrn, Cabecalho *c, Registro novo);
 
 /**
- * Atualiza logicamente um registo no RRN especificado.
+ * Atualizar logicamente um registo no RRN especificado.
  * * @param bin Ficheiro binário aberto em modo "rb+" (leitura e escrita).
  * @param rrn O "Relative Record Number" (RRN) do registo a ser atualizado.
  * @param c Ponteiro para o cabeçalho atual (carregado na memória).
