@@ -60,7 +60,7 @@ int registro_atende_criterio(Registro *r, char *campo, char *valor) {
     return 0;
 }
 
-//========== Lógicas principais ==========
+//============== Lógicas principais ===============
 
 //========== Lógica de inserção (INSERT) ==========
 void logica_insercao(FILE *bin, Cabecalho *c) {
