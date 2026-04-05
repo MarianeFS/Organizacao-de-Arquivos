@@ -1,5 +1,5 @@
 # Sistema de Gerenciamento de Estações de Metrô
-**Trabalho Prático 1 - Organização de Arquivos (SCC0215)**
+**Trabalho Prático 1 - (SCC0215) Organização de Arquivos**
 
 ![C](https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white)
 ![GCC](https://img.shields.io/badge/gcc-%231E293B.svg?style=for-the-badge&logo=gnu&logoColor=white)
